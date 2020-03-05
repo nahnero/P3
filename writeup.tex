@@ -156,8 +156,18 @@ El promedio se realizará sobre tres tramos.
 
 \subsection{¿Cómo cambia el ancho del pulso? ¿Por qué?}
 
-El pulso se ensancha debido al aumento de la ventana, esto se debe a
-que
+La densidad espectral de potencia (PSD) se define como la variación de
+energía que hay dentro de una señal vibratoria, en función de la
+frecuencia por unidad de masa. Es decir, muestra para cada frecuencia
+si la energía presente es mayor o menor.
+
+El periodograma es un estimador de la densidad espectral de potencia
+que permite realizar un suavizado del espectro. Con ello obtenemos una
+señal más estética pero perdemos resolución. Podemos además escoger
+ventanas y realizar solapes entre ellas y así obtener un mayor
+suavizado. Se selecciona un segmento, se reduce el tamaño de las
+ventanas, se promedia. Además podemos escoger el solape que nos
+convenga.
 
 \subsection{¿Qué espectro es más fiable?}
 
