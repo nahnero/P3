@@ -97,9 +97,11 @@ muestran en al \hyperref[fig:picos]{\textbf{Fig.}~\ref*{fig:picos}}.
 
 \subsection{¿Cuál es la resolución en frecuencia, es decir, el paso entre un punto y otro?}
 
-La resolución en frecuencia viene dada por el cociente entre la
+La resolución en frecuencia indica a partir de qué frecuencia vamos a
+ver la señal, y también cada cuánto se van a tomar las muestras.  La
+resolución en frecuencia viene dada por el cociente entre la
 frecuencia de muestreo y el número de puntos de la transformada de
-fourier, en este caso:
+Fourier, en este caso:
 \begin{equation}
 f_{r} = \dfrac{250 Hz}{2107} = 0.118652 Hz
 \end{equation}
@@ -137,10 +139,11 @@ seg puede ser óptimo (aunque también se pueden escoger tramos de  4,
 \end{figure}
 
 
+\vfill
 \subsection{¿Sobre cuántos tramos se realiza el promediado?}
 
 La señal entera tiene 2107 muestras y nosotros usamos una ventana de
-$4 \text{ secs} * f_{s} = 1000$ muestras con un solape de 500 muestas.
+$4 \text{ secs} * f_{s} = 1000$ muestras con un solape de 500 muestras.
 El promedio se realizará sobre tres tramos.
 
 \begin{figure}[h]
@@ -153,7 +156,16 @@ El promedio se realizará sobre tres tramos.
 
 \subsection{¿Cómo cambia el ancho del pulso? ¿Por qué?}
 
+El pulso se ensancha debido al aumento de la ventana, esto se debe a
+que
 
+\subsection{¿Qué espectro es más fiable?}
+
+El espectro proporcionado por el periodograma de \textit{Welch} es
+menos fiable que el proporcionado por la transformada de
+\textit{Fourier}, esto es debido a que el periodograma suaviza la
+señal. Este suavizado inherente a la técnica implica
+perder parte de la información.
 
 
 
