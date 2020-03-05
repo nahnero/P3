@@ -1,0 +1,158 @@
+\documentclass{article}
+\usepackage{babel}
+\usepackage[a4paper, top = 20mm, bottom=20mm, right=20mm, left=20mm] {geomet    ry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{matlab-prettifier}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{3mm}
+\setlength{\parskip}{5mm}
+\linespread{1.65}
+\renewcommand{\figurename}{Fig.}
+
+\title{\textbf{Práctica 2 Análisis de Señales}}
+\date{\today}
+\author{
+\href{mailto:igamher@etsid.upv.es}{Ignacio Amat Hernández}
+\thanks{\href{https://www.upv.es/titulaciones/GIB/indexc.html}{Grado en Ingeniería Biomédica, Escuela Técnica Superior de Ingenieros Industriales, Valencia, España.}}
+}
+
+
+\begin{document}
+\maketitle
+\section{Ejercicio 1 Fast Fourier Transform vs Periodograma (Welch)}
+
+Primero dibujamos la \textit{Fast Fourier Transform} de la señal:
+\vfill
+\begin{figure}[h]
+\centering
+\includegraphics[width = \linewidth]{../plots/fft.pdf}
+\vspace{-1.5cm}
+\caption{\textit{Fast Fourier Transform} del paciente \lstinline[style=matlab-editor]{001cltv1}.}
+\label{fig:fft}
+\end{figure}
+\vfill
+\newpage
+
+\subsection{¿Cuál es la frecuencia del pico principal?}
+Ahora dibujamos en detalle los primeros 20$Hz$, marcamos en rojo los
+picos y la escribimos la frecuencia a la que ocurren.
+\begin{equation}
+f_{PP} = 2.85 Hz
+\end{equation}
+\vspace{-1cm}
+\begin{figure}[h]
+\centering
+\includegraphics[width = \linewidth]{../plots/fft1.pdf}
+\vspace{-1.5cm}
+\caption{Detalle de los primeros 20$Hz$ de la \textit{FFT}.}
+\label{fig:picos}
+\end{figure}
+
+\vspace{-1cm}
+\subsection{¿Cuál es el ancho del pico principal?}
+
+Calculamos los picos y las anchuras con la función
+\lstinline[style=matlab-editor]{findpeaks} de
+\textsc{matlab}.
+El pico principal tiene una anchura a media altura (\textit{FWHM}) de
+$0.2Hz$ como se muestra en la \hyperref[fig:picos]{\textbf{Fig.}~\ref*{fig:picos}}.
+\begin{equation}
+FWHM = 0.20 Hz
+\end{equation}
+\vspace{-1.5cm}
+\subsection{¿Tiene  armónicos?  ¿Cuántos? ¿Cómo es la amplitud  de
+los armónicos con respecto al pico principal?}
+
+Para investigar los armónicos primero tomamos el vector con las
+frecuencias a las que ocurren los picos de la
+\hyperref[fig:picos]{\textbf{Fig.}~\ref*{fig:picos}} y dividimos cada
+entrada por el valor del segundo pico (el pico principal). Obtenemos
+estos resultados:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|r|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Picos} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} &
+	\textbf{5} & \textbf{6} & \textbf{7} & \textbf{8}\\\hline
+Frecuencias & 0.47 & 2.85 & 5.94 & 8.43 & 11.28 & 14.01 & 17.57 & 19.59\\\hline
+Normalizadas & 0.17 & 1.00 & 2.08 & 2.96 & 3.96 & 4.92 & 6.17 & 6.88\\\hline
+Redondeadas  & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7\\\hline
+\end{tabular}
+\caption{Frecuencias de los picos.}
+\label{table:fcs}
+\end{table}
+\newpage
+En la \hyperref[table:fcs]{\textbf{Tbl.}~\ref*{table:fcs}} vemos que
+cuando redondeamos las frecuencias normalizadas al pico principal
+obtenemos una secuencia perfecta de números del 1 al 7; esto indica
+que los picos se corresponden con los armónicos del segundo pico.
+Encontramos que el pico 2 tiene 6 armónicos superiores en los primeros
+20Hz de señal, es de esperar que tenga más, pero su amplitud es
+demasiado pequeña para poder ser detectados. Las amplitudes se
+muestran en al \hyperref[fig:picos]{\textbf{Fig.}~\ref*{fig:picos}}.
+
+\subsection{¿Cuál es la resolución en frecuencia, es decir, el paso entre un punto y otro?}
+
+La resolución en frecuencia viene dada por el cociente entre la
+frecuencia de muestreo y el número de puntos de la transformada de
+fourier, en este caso:
+\begin{equation}
+f_{r} = \dfrac{250 Hz}{2107} = 0.118652 Hz
+\end{equation}
+
+\subsection{¿De  qué  depende  la  resolución  en  frecuencia? ¿Qué  se  podría  hacer  para aumentar el número de puntos, y así aumentar la resolución?}
+
+La resolución en frecuencia marca la capacidad que tenemos para
+detectar eventos rápidos, si se produce un evento que dure menos de
+$1/f_{s}$ segundos no seremos capaces de verlo en nuestra señal. Para
+aumentar la resolución es menester aumentar la frecuencia de muestreo,
+ello requiere de un conversor capaz y tener la suficiente memoria y
+potencia de procesado para tratar el mayor volumen de datos.
+\vfill
+\begin{figure}[h]
+\centering
+\includegraphics[width = \linewidth]{../plots/fft2.pdf}
+\vspace{-1.5cm}
+\caption{Variabilidad del espectro \textit{FFT}.}
+\label{fig:LABEL_NAME}
+\end{figure}
+\vfill
+\newpage
+
+\subsection{Calcule la densidad espectral de potencia}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = \linewidth]{../plots/welch1.pdf}
+\vspace{-1cm}
+\caption{Periodograma de \textit{Welch}.}
+\label{fig:welch}
+\end{figure}
+
+
+\subsection{¿Sobre cuántos tramos se realiza el promediado?}
+
+La señal entera tiene 2107 muestras y nosotros usamos una ventana de
+$4 \text{ secs} * f_{s} = 1000$ muestras con un solape de 500 muestas.
+El promedio se realizará sobre tres tramos.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = \linewidth]{../plots/welch2.pdf}
+\vspace{-1cm}
+\caption{Periodograma de \textit{Welch}.}
+\label{fig:welch}
+\end{figure}
+
+\subsection{¿Cómo cambia el ancho del pulso? ¿Por qué?}
+
+
+
+
+
+
+\end{document}
