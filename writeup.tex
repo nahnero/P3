@@ -106,12 +106,15 @@ f_{r} = \dfrac{250 Hz}{2107} = 0.118652 Hz
 
 \subsection{¿De  qué  depende  la  resolución  en  frecuencia? ¿Qué  se  podría  hacer  para aumentar el número de puntos, y así aumentar la resolución?}
 
-La resolución en frecuencia marca la capacidad que tenemos para
-detectar eventos rápidos, si se produce un evento que dure menos de
-$1/f_{s}$ segundos no seremos capaces de verlo en nuestra señal. Para
-aumentar la resolución es menester aumentar la frecuencia de muestreo,
-ello requiere de un conversor capaz y tener la suficiente memoria y
-potencia de procesado para tratar el mayor volumen de datos.
+Vemos que la resolución en frecuencia depende del tramo que escojamos
+para el análisis y del envenenado, ya que son las frecuencias que dan
+más señal. Si aumentamos el intervalo de muestras o reducimos la
+frecuencia de muestreo, la resolución mejora. Si es un tramo demasiado
+pequeño no la veremos correctamente, y si es demasiado grande tampoco.
+La resolución de compromiso, para estos casos en particular, unos 8
+seg puede ser óptimo (aunque también se pueden escoger tramos de  4,
+16 segundos...).
+
 \vfill
 \begin{figure}[h]
 \centering
