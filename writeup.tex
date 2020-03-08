@@ -178,37 +178,103 @@ señal. Este suavizado inherente a la técnica implica
 perder parte de la información.
 
 \newpage
+\section{Ejercicio 2: Análisis de datos}
+
+En cada registro hemos calculado la posición del pico principal y de
+los armónicos con el objetivo de poder caracterizar cada registro y
+comparar las distintas arritmias que presentan los pacientes.
+
 \begin{figure}[h]
 \centering
 \includegraphics[width = \linewidth]{../plots/2welch1.pdf}
-\includegraphics[width = \linewidth]{../plots/2welch2.pdf}
-\includegraphics[width = \linewidth]{../plots/2welch3.pdf}
+\vspace{-1.5cm}
+\caption{Periodograma de \textit{Welch} \textbf{001cltv1}.}
 \end{figure}
+
+Taquicardia ventricular, se observa un pico principal entre 2-4 Hz, en
+concreto en 2.85 Hz. También se ven pequeños armónicos a continuación
+del pico principal
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = \linewidth]{../plots/2welch2.pdf}
+\caption{Periodograma de \textit{Welch} \textbf{001cltv4}.}
+\end{figure}
+
+Taquicardia ventricular, se observa un pequeño armónico y hay un pico
+principal entre los 2 y 4 Hz, concretamente en los 2.81 Hz.
+\\\\
+\begin{figure}[h]
+\centering
+\includegraphics[width = \linewidth]{../plots/2welch3.pdf}
+\caption{Periodograma de \textit{Welch} \textbf{012clts1}.}
+\end{figure}
+
+No desfibrilable, el pico principal está entre 0.8 y 4 Hz, en concreto
+en 3.3 Hz. Además presenta armónicos superiores y una gran dispersión.
+
 
 \begin{figure}[h]
 \centering
 \includegraphics[width = \linewidth]{../plots/2welch4.pdf}
-\includegraphics[width = \linewidth]{../plots/2welch5.pdf}
-\includegraphics[width = \linewidth]{../plots/2welch6.pdf}
+\caption{Periodograma de \textit{Welch} \textbf{013cltv5}.}
 \end{figure}
 
+ Se trata de una taquicardia ventricular ya que presenta armónicos
+ pequeños a continuación de éste, aunque el pico principal se
+ encuentre en 1.43 Hz (menor a 2 Hz).
+\\\\
+\begin{figure}[h]
+\centering
+\includegraphics[width = \linewidth]{../plots/2welch5.pdf}
+\caption{Periodograma de \textit{Welch} \textbf{015clsn1}.}
+\end{figure}
 
+Es un ritmo sinusal normal, observamos la frecuencia distribuida sin
+un claro pico principal
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = \linewidth]{../plots/2welch6.pdf}
+\caption{Periodograma de \textit{Welch} \textbf{022cltv1}.}
+\end{figure}
+
+Es una taquicardia ventricular, ya que encontramos el pico principal
+está en 2.7 Hz, entre el intervalo de frecuencias 2-4 Hz, y presenta
+armónicos pequeños.
 
 \newpage
-
+\section{Ejercicio 3: Base de datos de arritmias ventriculares malignas (MIT)}
 \begin{figure}[h]
 \centering
 \includegraphics[width = \linewidth]{../plots/418.pdf}
 \caption{Registro 418.}
 \end{figure}
 
+En los primeros 20 segundos encontramos un ritmo sinusal.
+Posteriormente, en el intervalo entre 399 - 406 segundos observamos una
+fibrilación ventricular, con un pico principal claro y una alta
+concentración de frecuencia. En los últimos 20 segundos, se observa un
+pico principal aproximadamente en 2 Hz, con algunos armónicos
+pequeños, por lo que podríamos decir que se trata de una taquicardia
+ventricular, pero no lo podemos asegurar.
 \newpage
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width = \linewidth]{../plots/419.pdf}
+\vspace{-1cm}
 \caption{Registro 419.}
 \end{figure}
+
+Observamos que en los primeros 20 segundos es un ritmo sinusal. En el
+intervalo de 320- 340 Hz encontramos una fibrilación auricular, según
+lo visto. En el intervalos de 1320-1400 Hz, podemos decir que se trata
+de una fibrilación ventricular, ya que observamos un pico principal
+con alta concentración y ausencia de armónicos. En los últimos 100
+segundos, continúa la fibrilación ventricular y además hay presencia
+de ruido en la señal.
+\newpage
 
 \begin{figure}[h]
 \centering
@@ -216,46 +282,65 @@ perder parte de la información.
 \caption{Registro 420.}
 \end{figure}
 
+En el intervalo que estamos analizando, se encuentra una taquicardia
+ventricular y, ya que el pico principal está entre 2-4 Hz y presenta
+armónicos pequeños. Además, hay un pico a bajas frecuencias que se
+podría deber al ruido.
+\\\\
+
 \begin{figure}[h]
 \centering
 \includegraphics[width = \linewidth]{../plots/421.pdf}
 \caption{Registro 421.}
 \end{figure}
 
+En la imagen se ve que se trata de una taquicardia ventricular, porque
+el pico principal está en el intervalo de 2-4 Hz, con presencia de
+pequeños armónicos.
+
+\newpage
+
 \begin{figure}[h]
 \centering
-\includegraphics[width = \linewidth]{../plots/422.pdf}
+\includegraphics[width = 0.8\linewidth]{../plots/422.pdf}
+\vspace{-1cm}
 \caption{Registro 422.}
-\end{figure}
-
-\begin{figure}[h]
-\centering
 \includegraphics[width = \linewidth]{../plots/423.pdf}
+\vspace{-2cm}
 \caption{Registro 423.}
+En los primeros 20 segundos del registro encontramos  un ritmo normal.
+En el siguiente intervalo (960-980 segundos) presenta una taquicardia
+ventricular. En los últimos 20 segundos, presenta una fibrilación
+auricular.
 \end{figure}
 
+\newpage
 \begin{figure}[h]
-\centering
-\includegraphics[width = \linewidth]{../plots/424.pdf}
+\begin{center}
+\includegraphics[width = 0.8\linewidth]{../plots/424.pdf}
+\end{center}
+\vspace{-1cm}
 \caption{Registro 424.}
-\end{figure}
-
-\begin{figure}[h]
-\centering
+\quad En el intervalo entre 1280-1320 Hz podemos observar que el paciente
+presenta una fibrilación ventricular, con un pico principal ancho
+entre 4-8 Hz y sin presencia de armónicos.
 \includegraphics[width = \linewidth]{../plots/425.pdf}
+\vspace{-2cm}
 \caption{Registro 425.}
 \end{figure}
 
+\newpage
+
 \begin{figure}[h]
-\centering
 \includegraphics[width = \linewidth]{../plots/426.pdf}
 \caption{Registro 426.}
+\quad Fibrilación Ventricular.
 \end{figure}
 
 \begin{figure}[h]
-\centering
 \includegraphics[width = \linewidth]{../plots/427.pdf}
 \caption{Registro 427.}
+\quad Taquicardia Ventricular
 \end{figure}
 
 \end{document}
